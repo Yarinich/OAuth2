@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Логін</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}" href=".../static/css/style.css"/>
+</head>
+<body>
+
+    <div class="main">
+        <form action="/auth" method="post">
+            <label for="username">Username:</label>
+            <input id="username" class="column" name="username" value="login"><br>
+
+            <label for="password">Password:</label>
+            <input id="password" class="column" name="password" value="password"><br>
+
+            <input   id="scope"          name="scope"          th:value="${scope}"         >
+            <input   id="redirect_uri"   name="redirect_uri"   th:value="${redirect_uri}"  >
+            <input   id="response_type"  name="response_type"  th:value="${response_type}" >
+            <input   id="client_id"      name="client_id"      th:value="${client_id}">
+            <input   id="access_type"    name="access_type"    th:value="${access_type}"   >
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+</body>
+</html>
