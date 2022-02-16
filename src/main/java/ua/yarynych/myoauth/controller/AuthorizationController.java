@@ -49,7 +49,13 @@ public class AuthorizationController {
     }
 
     @PostMapping(value = {"/auth"}, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public void getCode(AuthRequestDto authRequestDto, HttpServletResponse response) throws IOException {
+    public void getCode(@RequestParam("client_id") String client_id,
+                        @RequestParam("redirect_uri") String redirect_uri,
+                        @RequestParam("response_type") String response_type,
+                        AuthRequestDto authRequestDto, HttpServletResponse response) throws IOException {
+        authRequestDto.setClient_id(client_id);
+        authRequestDto.setRedirect_uri(redirect_uri);
+        authRequestDto.setResponse_type(response_type);
         validationService.validate(authRequestDto);
         response.sendRedirect(authRequestDto.getRedirect_uri() + "?code=" + tokenService.getCode(authRequestDto));
     }

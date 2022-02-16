@@ -6,7 +6,7 @@ public class TokenRequestDto {
 
     private String client_secret;
 
-    private String grand_type;
+    private String grant_type;
 
     private String code;
 
@@ -20,11 +20,11 @@ public class TokenRequestDto {
     public TokenRequestDto() {
     }
 
-    public TokenRequestDto(String client_id, String client_secret, String grand_type, String code, String scope,
+    public TokenRequestDto(String client_id, String client_secret, String grant_type, String code, String scope,
                            String redirect_uri, String refresh_token) {
         this.client_id = client_id;
         this.client_secret = client_secret;
-        this.grand_type = grand_type;
+        this.grant_type = grant_type;
         this.code = code;
         this.scope = scope;
         this.redirect_uri = redirect_uri;
@@ -48,12 +48,12 @@ public class TokenRequestDto {
         this.client_secret = client_secret;
     }
 
-    public String getGrand_type() {
-        return grand_type;
+    public String getGrant_type() {
+        return grant_type;
     }
 
-    public void setGrand_type(String grand_type) {
-        this.grand_type = grand_type;
+    public void setGrant_type(String grand_type) {
+        this.grant_type = grand_type;
     }
 
     public String getCode() {

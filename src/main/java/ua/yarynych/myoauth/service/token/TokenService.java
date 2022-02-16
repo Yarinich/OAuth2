@@ -8,4 +8,5 @@ import ua.yarynych.myoauth.dto.TokenResponseDto;
 public interface TokenService {
     String getCode(AuthRequestDto authRequestDto);
     TokenResponseDto getAccessToken(TokenRequestDto tokenRequestDto) throws JsonProcessingException;
+    TokenResponseDto getRefreshToken(TokenRequestDto tokenRequestDto) throws JsonProcessingException;
 }

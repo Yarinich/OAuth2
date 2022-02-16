@@ -38,7 +38,7 @@ public class ValidationServiceImpl implements ValidationService {
         if(!"code".equals(authRequestDto.getResponse_type())) {
             throw new OAuth2Exception(Exceptions.invalid_request, "Invalid client`s authentication code");
         }
-        if(!"http://localhost:8081/".equals(authRequestDto.getRedirect_uri())) {
+        if(!"https://developers.google.com/oauthplayground".equals(authRequestDto.getRedirect_uri())) {
             throw new OAuth2Exception(Exceptions.invalid_request, "Invalid redirect request");
         }
     }
@@ -52,10 +52,10 @@ public class ValidationServiceImpl implements ValidationService {
         if(!clientStore.checkClientSecret(tokenRequestDto.getClient_id(), tokenRequestDto.getClient_secret())) {
             throw new OAuth2Exception(Exceptions.invalid_request, "Invalid secret");
         }
-        if(!"http://localhost:8081/".equals(tokenRequestDto.getRedirect_uri())) {
+        if(!"https://developers.google.com/oauthplayground".equals(tokenRequestDto.getRedirect_uri())) {
             throw new OAuth2Exception(Exceptions.invalid_request, "Invalid redirect_uri");
         }
-        if(tokenRequestDto.getGrand_type() != null) {
+        if(tokenRequestDto.getGrant_type() == null) {
             throw new OAuth2Exception(Exceptions.invalid_request, "Invalid grand type");
         }
 

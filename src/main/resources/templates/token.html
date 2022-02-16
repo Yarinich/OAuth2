@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Token info</title>
+</head>
+<body>
+    <div class="main">
+        <form action="/token" method="post">
+
+            <input   name="client_id"       th:value="${client_id}">
+            <input   name="client_secret"   th:value="${client_secret}">
+            <input   name="grant_type"      th:value="${grant_type}" >
+            <input   name="redirect_uri"    th:value="${redirect_uri}"  >
+            <input   name="code"            th:value="${code}" >
+            <input   name="refresh_token"   th:value="${refresh_token}">
+
+            <button type="submit">Get token</button>
+        </form>
+    </div>
+</body>
+</html>
