@@ -2,6 +2,8 @@ package ua.yarynych.myoauth.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Objects;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccessToken {
 
@@ -80,4 +82,26 @@ public class AccessToken {
         this.type = type;
     }
 
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AccessToken that = (AccessToken) o;
+        return id == that.id && expires_in == that.expires_in && client_id.equals(that.client_id)
+                             && username.equals(that.username) && Objects.equals(scope, that.scope)
+                             && Objects.equals(type, that.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, client_id, username, expires_in, scope, type);
+    }
 }

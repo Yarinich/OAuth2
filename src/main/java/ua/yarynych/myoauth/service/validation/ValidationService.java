@@ -16,4 +16,6 @@ public interface ValidationService {
 
     void validate(TokenRequestDto tokenRequestDto) throws OAuth2Exception;
 
+//    void validate(String authorizationHeader) throws OAuth2Exception;
+
 }

@@ -3,15 +3,14 @@ package ua.yarynych.myoauth.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import ua.yarynych.myoauth.dto.ErrorResponseDto;
 import ua.yarynych.myoauth.exeptions.LoginException;
 import ua.yarynych.myoauth.exeptions.OAuth2Exception;
 
 @ControllerAdvice
-public class AuthorizationExceptionHandler {
+public class OAuthExceptionHandler {
 
-    @ExceptionHandler(OAuth2Exception.class)
+    @org.springframework.web.bind.annotation.ExceptionHandler(OAuth2Exception.class)
     public ResponseEntity<?> handleOAuth2Exception(OAuth2Exception oAuth2Exception) {
         return ResponseEntity
                 .badRequest()
@@ -19,7 +18,7 @@ public class AuthorizationExceptionHandler {
     }
 
 
-    @ExceptionHandler(LoginException.class)
+    @org.springframework.web.bind.annotation.ExceptionHandler(LoginException.class)
     public String handleLoginException(LoginException loginException, Model model) {
         model.addAttribute("exception", loginException.toString());
         return "error";

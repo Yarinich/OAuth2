@@ -48,6 +48,7 @@ public class AuthorizationController {
         return "login";
     }
 
+
     @PostMapping(value = {"/auth"}, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public void getCode(@RequestParam("client_id") String client_id,
                         @RequestParam("redirect_uri") String redirect_uri,
@@ -59,5 +60,4 @@ public class AuthorizationController {
         validationService.validate(authRequestDto);
         response.sendRedirect(authRequestDto.getRedirect_uri() + "?code=" + tokenService.getCode(authRequestDto));
     }
-
 }
